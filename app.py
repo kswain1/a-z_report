@@ -78,15 +78,15 @@ def get_menu():
 
         dcc.Link('Overview   ', href='/overview', className="tab first"),
 
-        dcc.Link('Price Performance   ', href='/price-performance', className="tab"),
+        dcc.Link('Medical History   ', href='/price-performance', className="tab"),
 
-        dcc.Link('Portfolio & Management   ', href='/portfolio-management', className="tab"),
+        dcc.Link('Average Composite Score  ', href='/portfolio-management', className="tab"),
 
-        dcc.Link('Fees & Minimums   ', href='/fees', className="tab"),
+        dcc.Link('Neuromusclar Report  ', href='/fees', className="tab"),
 
-        dcc.Link('Distributions   ', href='/distributions', className="tab"),
+        dcc.Link('Assesment   ', href='/distributions', className="tab"),
 
-        dcc.Link('News & Reviews   ', href='/news-and-reviews', className="tab")
+        dcc.Link('Treatment   ', href='/news-and-reviews', className="tab")
 
     ], className="row ")
     return menu
