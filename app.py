@@ -7,6 +7,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import pandas as pd
 import os
+import base64
 
 app = dash.Dash(__name__)
 server = app.server
@@ -51,6 +52,7 @@ def get_logo():
 
         html.Div([
             html.Img(src='http://logonoid.com/images/vanguard-logo.png', height='40', width='160')
+            #html.Img(src='http://logonoid.com/images/vanguard-logo.png', height='40', width='160')
         ], className="ten columns padded"),
 
         html.Div([
@@ -66,7 +68,7 @@ def get_header():
 
         html.Div([
             html.H5(
-                'Vanguard 500 Index Fund Investor Shares')
+                'Z-report')
         ], className="twelve columns padded")
 
     ], className="row gs-header gs-text-header")
@@ -91,13 +93,29 @@ def get_menu():
     ], className="row ")
     return menu
 
+    # includes page/full view
+def get_ProfilePic():
+    ProfilePic = html.Div([
+
+        html.Div([
+            html.Img(src='https://gdurl.com/yJ6g', height='100', width='150')
+            #html.Img(src='http://logonoid.com/images/vanguard-logo.png', height='40', width='160')
+        ], className="ten columns padded"),
+
+        #html.Div([
+         #   dcc.Link('Full View   ', href='/full-view')
+        #], className="two columns page-view no-print")
+
+    ], className="row ")
+    return ProfilePic
+
 ## Page layouts
 overview = html.Div([  # page 1
 
         print_button(),
 
         html.Div([
-
+            
             # Header
             get_logo(),
             get_header(),
@@ -109,10 +127,73 @@ overview = html.Div([  # page 1
             html.Div([
 
                 html.Div([
-                    html.H6('Product Summary',
+                    html.H6('Medical History',
                             className="gs-header gs-text-header padded"),
 
                     html.Br([]),
+                    get_ProfilePic(),
+
+            html.Div([
+
+                  html.Div([
+                    html.Strong(["Name"])
+                  ],  className="four columns right-aligned"),
+
+                  html.Div([
+                    html.P(["Serena Williams"])
+                  ],  className= "six columns")
+
+            ], className="row "),
+
+            html.Div([
+
+                html.Div([
+                  html.Strong(["Age"])
+                ],  className="four columns right-aligned"),
+
+                html.Div([
+                  html.P(["19"])
+                ],  className="six columns")
+
+            ],  className="row "),
+
+            html.Div([
+
+                  html.Div([
+                    html.Strong(["Position"])
+                  ],  className="four columns right-aligned"),
+
+                  html.Div([
+                    html.P(["Center"])
+                  ],  className= "six columns")
+
+
+            ], className="row "),
+
+            html.Div([
+
+                  html.Div([
+                   html.Strong(["Current Injury"])
+                  ],  className="four columns right-aligned"),
+
+                  html.Div([
+                    html.P(["None"])
+                  ],  className="six columns")
+
+            ],  className="row "),
+
+            html.Div([
+
+                  html.Div([
+                   html.Strong(["Previous Injury"])
+                  ],  className="four columns right-aligned"),
+
+                   html.Div([
+                    html.P(["Hamstring Strain"])
+                  ],  className="six columns")
+
+            ],  className="row "),
+
 
                     html.P("\
                             As the industry’s first index fund for individual investors, \
@@ -124,6 +205,7 @@ overview = html.Div([  # page 1
                             exposure to the stock market. Because the 500 Index Fund is broadly \
                             diversified within the large-capitalization market, it may be \
                             considered a core equity holding in a portfolio."),
+
 
                 ], className="six columns"),
 
