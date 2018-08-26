@@ -66,7 +66,7 @@ def get_header():
 
         html.Div([
             html.H5(
-                'Vanguard 500 Index Fund Investor Shares')
+                'Athlete Injury Risk Report')
         ], className="twelve columns padded")
 
     ], className="row gs-header gs-text-header")
@@ -138,7 +138,7 @@ overview = html.Div([  # page 1
                                     x = ["0", "0.18", "0.18", "0"],
                                     y = ["0.2", "0.2", "0.4", "0.2"],
                                     fill = "tozerox",
-                                    fillcolor = "rgba(31, 119, 180, 0.2)",
+                                    fillcolor = "rgba(0, 128, 0, 0.2)",
                                     hoverinfo = "none",
                                     line = {"width": 0},
                                     mode = "lines",
@@ -149,7 +149,7 @@ overview = html.Div([  # page 1
                                     x = ["0.2", "0.38", "0.38", "0.2", "0.2"],
                                     y = ["0.2", "0.2", "0.6", "0.4", "0.2"],
                                     fill = "tozerox",
-                                    fillcolor = "rgba(31, 119, 180, 0.4)",
+                                    fillcolor = "rgba(0, 128, 0, 0.4)",
                                     hoverinfo = "none",
                                     line = {"width": 0},
                                     mode = "lines",
@@ -160,7 +160,7 @@ overview = html.Div([  # page 1
                                     x = ["0.4", "0.58", "0.58", "0.4", "0.4"],
                                     y = ["0.2", "0.2", "0.8", "0.6", "0.2"],
                                     fill = "tozerox",
-                                    fillcolor = "rgba(31, 119, 180, 0.6)",
+                                    fillcolor = "rgba(255, 225, 53, 0.6)",
                                     hoverinfo = "none",
                                     line = {"width": 0},
                                     mode = "lines",
@@ -171,7 +171,7 @@ overview = html.Div([  # page 1
                                     x = ["0.6", "0.78", "0.78", "0.6", "0.6"],
                                     y = ["0.2", "0.2", "1", "0.8", "0.2"],
                                     fill = "tozerox",
-                                    fillcolor = "rgb(31, 119, 180)",
+                                    fillcolor = "rgb(255,  69,  0, 0.7)",
                                     hoverinfo = "none",
                                     line = {"width": 0},
                                     mode = "lines",
@@ -182,7 +182,7 @@ overview = html.Div([  # page 1
                                     x = ["0.8", "0.98", "0.98", "0.8", "0.8"],
                                     y = ["0.2", "0.2", "1.2", "1", "0.2"],
                                     fill = "tozerox",
-                                    fillcolor = "rgba(31, 119, 180, 0.8)",
+                                    fillcolor = "rgba(255,0,0, 0.9)",
                                     hoverinfo = "none",
                                     line = {"width": 0},
                                     mode = "lines",
@@ -216,7 +216,7 @@ overview = html.Div([  # page 1
                                         "size": 10
                                       },
                                       "showarrow": False,
-                                      "text": "<b>Less risk<br>Less reward</b>",
+                                      "text": "<b>Low Risk</b>",
                                       "xref": "x",
                                       "yref": "y"
                                     },
@@ -230,7 +230,7 @@ overview = html.Div([  # page 1
                                         "size": 10
                                       },
                                       "showarrow": False,
-                                      "text": "<b>More risk<br>More reward</b>",
+                                      "text": "<b>High Risk</b>",
                                       "xref": "x",
                                       "yref": "y"
                                     }
