@@ -98,15 +98,52 @@ def get_ProfilePic():
     ProfilePic = html.Div([
 
         html.Div([
-            html.Img(src='https://gdurl.com/yJ6g', height='100', width='150')
+            html.Img(src='https://gdurl.com/yJ6g', height='150', width='150')
             #html.Img(src='http://logonoid.com/images/vanguard-logo.png', height='40', width='160')
-        ], className="ten columns padded"),
+        ], className="five columns"),
 
-        #html.Div([
-         #   dcc.Link('Full View   ', href='/full-view')
-        #], className="two columns page-view no-print")
+        html.Div([
+          html.Strong(["Name"]),
+          html.P(" "),
+          html.P("Age"),
+          html.P("Position"),
+          html.P("Current Injury"),
+          html.P("Previous Injury"),
 
-    ], className="row ")
+        ],    className="two columns padded "),
+
+        html.Div([
+          html.Strong(["Serena Williams"]),
+          html.P(" "),
+          html.P("19"),
+          html.P("Center"),
+          html.P("None"),
+          html.Br([]),
+          html.P("Right Hamstring", className="two columns"),
+
+        ],  className= "five columns padded "),
+
+        # html.Div([
+        #   html.Strong(["Age"])
+        # ],  className="two columns padded "),
+
+        # html.Div([
+        #   html.P(["19"])
+        # ],  className="five columns padded "),
+
+        # html.Div([
+        #   html.Strong(["Position"])
+        # ],  className="two columns padded "),
+
+        # html.Div([
+        #   html.P(["Center"])
+        # ],  className= "five columns padded "),
+
+], className="row ")
+
+      
+
+
     return ProfilePic
 
 ## Page layouts
@@ -132,79 +169,6 @@ overview = html.Div([  # page 1
 
                     html.Br([]),
                     get_ProfilePic(),
-
-            html.Div([
-
-                  html.Div([
-                    html.Strong(["Name"])
-                  ],  className="four columns right-aligned"),
-
-                  html.Div([
-                    html.P(["Serena Williams"])
-                  ],  className= "six columns")
-
-            ], className="row "),
-
-            html.Div([
-
-                html.Div([
-                  html.Strong(["Age"])
-                ],  className="four columns right-aligned"),
-
-                html.Div([
-                  html.P(["19"])
-                ],  className="six columns")
-
-            ],  className="row "),
-
-            html.Div([
-
-                  html.Div([
-                    html.Strong(["Position"])
-                  ],  className="four columns right-aligned"),
-
-                  html.Div([
-                    html.P(["Center"])
-                  ],  className= "six columns")
-
-
-            ], className="row "),
-
-            html.Div([
-
-                  html.Div([
-                   html.Strong(["Current Injury"])
-                  ],  className="four columns right-aligned"),
-
-                  html.Div([
-                    html.P(["None"])
-                  ],  className="six columns")
-
-            ],  className="row "),
-
-            html.Div([
-
-                  html.Div([
-                   html.Strong(["Previous Injury"])
-                  ],  className="four columns right-aligned"),
-
-                   html.Div([
-                    html.P(["Hamstring Strain"])
-                  ],  className="six columns")
-
-            ],  className="row "),
-
-
-                    html.P("\
-                            As the industry’s first index fund for individual investors, \
-                            the 500 Index Fund is a low-cost way to gain diversified exposure \
-                            to the U.S. equity market. The fund offers exposure to 500 of the \
-                            largest U.S. companies, which span many different industries and \
-                            account for about three-fourths of the U.S. stock market’s value. \
-                            The key risk for the fund is the volatility that comes with its full \
-                            exposure to the stock market. Because the 500 Index Fund is broadly \
-                            diversified within the large-capitalization market, it may be \
-                            considered a core equity holding in a portfolio."),
 
 
                 ], className="six columns"),
