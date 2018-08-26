@@ -399,67 +399,99 @@ overview = html.Div([  # page 1
                     )
                 ], className="six columns"),
 
-                html.Div([
-                    html.H6("Hypothetical growth of $10,000",
-                            className="gs-header gs-table-header padded"),
+                 html.Div([
+                    html.H6('Left Lower Extremity',
+                            className="gs-header gs-text-header padded"),
                     dcc.Graph(
-                        id="grpah-2",
+                        id = "graph-2",
                         figure={
                             'data': [
                                 go.Scatter(
-                                    x = ["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"],
-                                    y = ["10000", "7500", "9000", "10000", "10500", "11000", "14000", "18000", "19000", "20500", "24000"],
-                                    line = {"color": "rgb(53, 83, 255)"},
-                                    mode = "lines",
-                                    name = "500 Index Fund Inv"
-                                )
+                                   x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                   y = ["45", "60", "90", "60"],
+                                   marker = {
+                                   "color": "rgb(0,0,0)"
+                                   },
+                                   name = "Bad Tracker"
+
+                                  ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["40", "50", "85", "55"],
+                                    marker = {
+                                      "color": "rgb(0,128,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                      }
+                                    },
+                                    name = "Good"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["5", "10", "5", "5"],
+                                    marker = {
+                                      "color": "rgb(255, 225, 53)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                      }
+                                    },
+                                    name = "Ok"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["55", "40", "10", "40"],
+                                    marker = {
+                                      "color": "rgb(255,0,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                        }
+                                    },
+                                    name = "Bad"
+                                ),
                             ],
                             'layout': go.Layout(
                                 autosize = False,
-                                title = "",
+                                barmode = 'stack',
+                                bargap = 0.35,
                                 font = {
                                   "family": "Raleway",
                                   "size": 10
                                 },
                                 height = 200,
-                                width = 340,
                                 hovermode = "closest",
                                 legend = {
-                                  "x": -0.0277108433735,
-                                  "y": -0.142606516291,
-                                  "orientation": "h"
+                                  "x": -0.0228945952895,
+                                  "y": -0.189563896463,
+                                  "orientation": "h",
+                                  "yanchor": "top"
                                 },
                                 margin = {
-                                  "r": 20,
+                                  "r": 0,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 50
+                                  "l": 10
                                 },
                                 showlegend = True,
+                                title = "",
+                                width = 340,
                                 xaxis = {
                                   "autorange": True,
-                                  "linecolor": "rgb(0, 0, 0)",
-                                  "linewidth": 1,
-                                  "range": [2008, 2018],
-                                  "showgrid": False,
+                                  "range": [-0.5, 4.5],
                                   "showline": True,
                                   "title": "",
-                                  "type": "linear"
+                                  "type": "category"
                                 },
                                 yaxis = {
-                                  "autorange": False,
-                                  "gridcolor": "rgba(127, 127, 127, 0.2)",
-                                  "mirror": False,
-                                  "nticks": 4,
-                                  "range": [0, 30000],
+                                  "autorange": True,
+                                  "range": [0, 22.9789473684],
                                   "showgrid": True,
                                   "showline": True,
-                                  "ticklen": 10,
-                                  "ticks": "outside",
-                                  "title": "$",
+                                  "title": "",
                                   "type": "linear",
-                                  "zeroline": False,
-                                  "zerolinewidth": 4
+                                  "zeroline": False
                                 }
                             )
                         },
@@ -478,6 +510,18 @@ overview = html.Div([  # page 1
                 html.Div([
 
                     html.H6('Right Lower Extremity Explanation',
+                            className="gs-header gs-table-header padded"),
+
+                    html.H6('Assessment',className="six columns padded"),
+                    html.P("This athlete is at risk of injuring their lateral gastro within the next season"),
+
+                    html.H6("Treatment",className="six columns padded"),
+                    html.P("Custom orthodotics will reduce injuries, and lateral gastro excerises"),
+                ], className="six columns"),
+
+                html.Div([
+
+                    html.H6('Left Lower Extremity Explanation',
                             className="gs-header gs-table-header padded"),
 
                     html.H6('Assessment',className="six columns padded"),
