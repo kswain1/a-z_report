@@ -50,7 +50,7 @@ def get_logo():
     logo = html.Div([
 
         html.Div([
-            html.Img(src='https://gdurl.com/huiu', height='40', width='160')
+            html.Img(src='https://gdurl.com/huiu', height='120', width='160')
         ], className="ten columns padded"),
 
         html.Div([
@@ -140,39 +140,61 @@ overview = html.Div([  # page 1
             html.Div([
 
                 html.Div([
-                    html.H6('Average annual performance',
+                    html.H6('Right Lower Extremity',
                             className="gs-header gs-text-header padded"),
                     dcc.Graph(
                         id = "graph-1",
                         figure={
                             'data': [
+                                go.Scatter(
+                                   x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                   y = ["80", "70", "90", "40"],
+                                   marker = {
+                                   "color": "rgb(0,0,0)"
+                                   },
+                                   name = "Bad Tracker"
+
+                                  ),
                                 go.Bar(
-                                    x = ["1 Year", "3 Year", "5 Year", "10 Year", "41 Year"],
-                                    y = ["21.67", "11.26", "15.62", "8.37", "11.11"],
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["75", "60", "85", "35"],
                                     marker = {
-                                      "color": "rgb(53, 83, 255)",
+                                      "color": "rgb(0,128,0)",
                                       "line": {
                                         "color": "rgb(255, 255, 255)",
                                         "width": 2
                                       }
                                     },
-                                    name = "500 Index Fund"
+                                    name = "Good"
                                 ),
                                 go.Bar(
-                                    x = ["1 Year", "3 Year", "5 Year", "10 Year", "41 Year"],
-                                    y = ["21.83", "11.41", "15.79", "8.50"],
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["5", "10", "5", "5"],
                                     marker = {
                                       "color": "rgb(255, 225, 53)",
                                       "line": {
                                         "color": "rgb(255, 255, 255)",
                                         "width": 2
+                                      }
+                                    },
+                                    name = "Ok"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["20", "30", "10", "60"],
+                                    marker = {
+                                      "color": "rgb(255,0,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
                                         }
                                     },
-                                    name = "S&P 500 Index"
+                                    name = "Bad"
                                 ),
                             ],
                             'layout': go.Layout(
                                 autosize = False,
+                                barmode = 'stack',
                                 bargap = 0.35,
                                 font = {
                                   "family": "Raleway",
@@ -189,7 +211,7 @@ overview = html.Div([  # page 1
                                 margin = {
                                   "r": 0,
                                   "t": 20,
-                                  "b": 10,
+                                  "b": 20,
                                   "l": 10
                                 },
                                 showlegend = True,
@@ -294,6 +316,11 @@ overview = html.Div([  # page 1
             # Row 5
 
             html.Div([
+
+                # html.Div([
+                #   html.H6("Explanation"),
+                #   html.P("Your Lateral Gastro is at high risk of injury."),
+                #   ]),
 
                 html.Div([
                     html.H6('Price & Performance (%)',
