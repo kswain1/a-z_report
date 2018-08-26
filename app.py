@@ -99,7 +99,7 @@ def get_ProfilePic():
     ProfilePic = html.Div([
 
         html.Div([
-            html.Img(src='https://gdurl.com/yJ6g', height='150', width='150')
+            html.Img(src='http://gdurl.com/JFia', height='150', width='150')
             #html.Img(src='http://logonoid.com/images/vanguard-logo.png', height='40', width='160')
         ], className="five columns"),
 
@@ -123,22 +123,6 @@ def get_ProfilePic():
           html.P("Right Hamstring", className="two columns"),
 
         ],  className= "five columns padded "),
-
-        # html.Div([
-        #   html.Strong(["Age"])
-        # ],  className="two columns padded "),
-
-        # html.Div([
-        #   html.P(["19"])
-        # ],  className="five columns padded "),
-
-        # html.Div([
-        #   html.Strong(["Position"])
-        # ],  className="two columns padded "),
-
-        # html.Div([
-        #   html.P(["Center"])
-        # ],  className= "five columns padded "),
 
 ], className="row ")
 
@@ -175,7 +159,7 @@ overview = html.Div([  # page 1
                 ], className="six columns"),
 
               html.Div([
-                    html.H6("Risk Potential",
+                    html.H6("Injury Risk Potential",
                             className="gs-header gs-table-header padded"),
                     dcc.Graph(
                         id='graph-3',
@@ -745,7 +729,10 @@ pricePerformance = html.Div([  # page 2
                     html.Table(make_dash_table(df_recent_returns), className="tiny-header")
                 ], className=" twelve columns"),
 
+                 get_logo(),
+
             ], className="row "),
+
 
         ], className="subpage")
 
