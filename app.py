@@ -50,7 +50,7 @@ def get_logo():
     logo = html.Div([
 
         html.Div([
-            html.Img(src='http://logonoid.com/images/vanguard-logo.png', height='40', width='160')
+            html.Img(src='https://gdurl.com/huiu', height='40', width='160')
         ], className="ten columns padded"),
 
         html.Div([
