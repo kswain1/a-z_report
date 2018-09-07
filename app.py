@@ -560,7 +560,7 @@ overview = html.Div([  # page 1
                     html.H6("Treatment",className="six columns padded"),
                     html.P("Custom orthodotics will reduce injuries, and lateral gastro excerises"),
                 ], className="six columns"),
-                get_logo(),
+                #get_logo(),
 
             ], className="row ")
 
@@ -595,7 +595,7 @@ portfolioManagement = html.Div([ # page 3
 
             # Header
 
-            get_logo(),
+            #get_logo(),
             get_header(),
             html.Br([]),
             get_menu(),
