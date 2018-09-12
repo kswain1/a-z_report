@@ -7,3 +7,10 @@ We are basing our dashboard technology using dash. Dash abstracts away all of th
 
 More on the Framework Background can be found here.
 To learn more check out our [documentation](https://dash.plot.ly).
+
+### Key Issues 
+- Fix CSS color (update)
+- Add composite score
+- Add Neuromuscular effort chart 
+- Add Assessment Chart and Analysis Breifing 
+
