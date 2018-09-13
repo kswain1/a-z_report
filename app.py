@@ -587,19 +587,21 @@ pricePerformance = html.Div([  # page 2
             figure = {
               'data' : [
                 go.Table(
-                  header=dict(values=['Baseline','Anterior Direction', 'Posteromedial Direction', 'Posterolateral Direction', 'Composite Score']),
+                  header=dict(values=['<b> Baseline','<b> Anterior Direction', '<b> Posteromedial Direction', '<b> Posterolateral Direction', '<b> Composite Score']),
                   cells=dict(values=[['Left Lower Extremity', 'Right Lower Extremity'],
                                       [56,56],[94,94],[94, 92], [80.36,79.41]])
                 )
               ],
-              'layout':
-                {'title': 'Composite Score Breakdown'}
-             }
-
-            ),
+              'layout': go.Layout(
+                  title = 'Composite Score Breakdown',
+                  margin = {
+                          'b':20,
+                  },
+                  height = 300,
+                ),
+              }
+           ),
           ]),
-        
-          html.H1("hello"),
           html.Div([
           html.P("**Composite scores below 89.6 specifically in basketball \
             players indicate high risk of distal lower extremity injury.\
