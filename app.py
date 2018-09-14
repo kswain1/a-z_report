@@ -63,6 +63,13 @@ def get_logo():
     return logo
 
 
+def get_peroneals():
+  logo = html.Div([
+    html.Img(src='http://gdurl.com/w0l9', title = 'High Risk Area', height='250', width='250',style={'horizontal-align':'center'}),
+
+    ],)
+  return logo
+
 def get_header():
     header = html.Div([
 
@@ -400,7 +407,7 @@ overview = html.Div([  # page 1
                                   "r": 0,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 10
+                                  "l": 20
                                 },
                                 showlegend = True,
                                 title = "",
@@ -499,10 +506,10 @@ overview = html.Div([  # page 1
                                   "yanchor": "top"
                                 },
                                 margin = {
-                                  "r": 0,
+                                  "r": 8,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 10
+                                  "l": 20
                                 },
                                 showlegend = True,
                                 title = "",
@@ -606,8 +613,63 @@ pricePerformance = html.Div([  # page 2
           html.P("**Composite scores below 89.6 specifically in basketball \
             players indicate high risk of distal lower extremity injury.\
             Higher the score, the more effecient neuromuscular process exhibited by the athlete. "),
-        ],className = "row"),  
+        ],className = "row"),
 
+          html.Div([
+                    html.H6(children='Assessment',
+                            style={
+                            'textAlign':'center',
+                            'backgroundColor':'black',
+                            },
+                            className="gs-header gs-text-header padded"),
+
+                ], className="row"),
+           html.H4("High Risk Area: Peroneals", style=dict(textAlign='left',textDecoration='underline')),
+           html.Div([
+             get_peroneals(),
+            ],className="six columns"),
+
+          html.Div([
+            html.H6("- Reach Distance > 4 cm = Athlete 2.5 times more likely to have\
+            a distal lower extremity injury"),
+          html.Br([]),
+          html.H6("- Composite Score < 89.6 = high risk of distal lower extremity injury \
+            Both right and left lower extremity at high risk for distal lower extremity Injury"),
+          html.Br([]),
+          html.H6("Patient must always use some type of Orthotic Device (Idea for Injury Prevention)."),
+          
+
+          ],className = "row") ,
+          html.Br([]),
+          html.Div([
+                    html.H6(children='Z-Sheet Brief',
+                            style={
+                            'textAlign':'center',
+                            'backgroundColor':'black',
+                            },
+                            className="gs-header gs-text-header padded"),
+                    html.H5("Briefing",className='six columns',style=dict(textAlign='center',textDecoration='underline')),
+
+                    html.H6(children="\
+                        21 year-old male collegiate basketball player with history of a Grade I Lisfranc injury\
+                      ligament sprain, to the right foot status post one month. Based upon the examinations performed\
+                      and described below, the patient's primary medical concern from a lower extremity standpoint is compensatory\
+                      injuries, re-injury, and rehabilitation. As per the quantative data obtained through the Homer Technique\
+                      analysis, risk areas were identified and an optimal rehab plan formulated", className='six columns'),
+
+                    html.H5("Follow Up Action",style=dict(textAlign='center',textDecoration='underline'),),
+                    html.Ol([
+                        html.Li("Gait Training"),
+                        html.Li(["High Risk Areas", 
+                          html.Ul([html.Li("Peroneals",style=(dict(textIndent="20px",)))])
+                          , ]),
+                        html.Li("Eccentric Strengthening and Stretching"),
+                        html.Li("Friction Massage"),
+                        html.Li("Proprioceptive Exercises"),
+                        html.Li("Tibialis Anterior"),
+                      ],style=dict(fontSize=15,textIndent=10), className = 'padded', ),
+
+                ], className="row"),          
     ], className="page")
 
 
@@ -805,7 +867,7 @@ portfolioManagement = html.Div([ # page 3
                                   "l": 20
                                 },
                                 showlegend = True,
-                                title = "",
+                                title = "Muscular Exhaustion Level",
                                 #width = 340,
                                 xaxis = {
                                   "autorange": True,
