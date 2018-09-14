@@ -762,7 +762,7 @@ portfolioManagement = html.Div([ # page 3
                                   "r": 0,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 10
+                                  "l": 40
                                 },
                                 showlegend = True,
                                 title = "",
@@ -771,7 +771,7 @@ portfolioManagement = html.Div([ # page 3
                                   "autorange": True,
                                   "range": [-0.5, 4.5],
                                   "showline": True,
-                                  "title": "",
+                                  "title": "Lower Extremity Major Muscles",
                                   "type": "category"
                                 },
                                 yaxis = {
@@ -779,7 +779,7 @@ portfolioManagement = html.Div([ # page 3
                                   "range": [0, 22.9789473684],
                                   "showgrid": True,
                                   "showline": True,
-                                  "title": "",
+                                  "title": "Muscle Exhaustion Percentage",
                                   "type": "linear",
                                   "zeroline": False
                                 }
@@ -789,7 +789,7 @@ portfolioManagement = html.Div([ # page 3
                             'displayModeBar': False
                         }
                     )
-                ], ),
+                ], className='row'),
             
             html.Div([
               html.H6('Left Lower Extremity',
@@ -864,16 +864,16 @@ portfolioManagement = html.Div([ # page 3
                                   "r": 0,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 20
+                                  "l": 40
                                 },
                                 showlegend = True,
-                                title = "Muscular Exhaustion Level",
+                                title = "",
                                 #width = 340,
                                 xaxis = {
                                   "autorange": True,
                                   "range": [-0.5, 4.5],
                                   "showline": True,
-                                  "title": "",
+                                  "title": "Lower Extremity Major Muscles",
                                   "type": "category"
                                 },
                                 yaxis = {
@@ -881,7 +881,7 @@ portfolioManagement = html.Div([ # page 3
                                   "range": [0, 22.9789473684],
                                   "showgrid": True,
                                   "showline": True,
-                                  "title": "",
+                                  "title": "Muscle Exhaustion Percentage",
                                   "type": "linear",
                                   "zeroline": False
                                 }
@@ -892,7 +892,7 @@ portfolioManagement = html.Div([ # page 3
                         }
                     )
               ]),
-            ]),
+            ],className='row padded'),
     
     ], className="page")
 
