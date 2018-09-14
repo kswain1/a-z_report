@@ -63,6 +63,13 @@ def get_logo():
     return logo
 
 
+def get_peroneals():
+  logo = html.Div([
+    html.Img(src='http://gdurl.com/w0l9', title = 'High Risk Area', height='250', width='250',style={'horizontal-align':'center'}),
+
+    ],)
+  return logo
+
 def get_header():
     header = html.Div([
 
@@ -80,9 +87,9 @@ def get_menu():
 
         dcc.Link('Overview   ', href='/overview', className="tab first"),
 
-        dcc.Link('Medical History   ', href='/price-performance', className="tab"),
+        dcc.Link('Composite Score   ', href='/price-performance', className="tab"),
 
-        dcc.Link('Average Composite Score  ', href='/portfolio-management', className="tab"),
+        dcc.Link('Neuromuscular Report  ', href='/portfolio-management', className="tab"),
 
         #dcc.Link('Neuromusclar Report  ', href='/fees', className="tab"),
 
@@ -400,7 +407,7 @@ overview = html.Div([  # page 1
                                   "r": 0,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 10
+                                  "l": 20
                                 },
                                 showlegend = True,
                                 title = "",
@@ -499,10 +506,10 @@ overview = html.Div([  # page 1
                                   "yanchor": "top"
                                 },
                                 margin = {
-                                  "r": 0,
+                                  "r": 8,
                                   "t": 20,
                                   "b": 20,
-                                  "l": 10
+                                  "l": 20
                                 },
                                 showlegend = True,
                                 title = "",
@@ -579,11 +586,90 @@ pricePerformance = html.Div([  # page 2
             get_header(),
             html.Br([]),
             get_menu(),
+        ]),
+        ## Trail to stylize the spreadsheet
+        html.Div([
+          dcc.Graph(
+            id='table-1',
+            figure = {
+              'data' : [
+                go.Table(
+                  header=dict(values=['<b> Baseline','<b> Anterior Direction', '<b> Posteromedial Direction', '<b> Posterolateral Direction', '<b> Composite Score']),
+                  cells=dict(values=[['Left Lower Extremity', 'Right Lower Extremity'],
+                                      [56,56],[94,94],[94, 92], [80.36,79.41]])
+                )
+              ],
+              'layout': go.Layout(
+                  title = 'Composite Score Breakdown',
+                  margin = {
+                          'b':20,
+                  },
+                  height = 300,
+                ),
+              }
+           ),
+          ]),
+          html.Div([
+          html.P("**Composite scores below 89.6 specifically in basketball \
+            players indicate high risk of distal lower extremity injury.\
+            Higher the score, the more effecient neuromuscular process exhibited by the athlete. "),
+        ],className = "row"),
 
-            html.Img(src='https://thumbs.dreamstime.com/b/website-under-construction-sign-grungy-style-vector-large-format-42461291.jpg',)
+          html.Div([
+                    html.H6(children='Assessment',
+                            style={
+                            'textAlign':'center',
+                            'backgroundColor':'black',
+                            },
+                            className="gs-header gs-text-header padded"),
 
-            ]),    
+                ], className="row"),
+           html.H4("High Risk Area: Peroneals", style=dict(textAlign='left',textDecoration='underline')),
+           html.Div([
+             get_peroneals(),
+            ],className="six columns"),
 
+          html.Div([
+            html.H6("- Reach Distance > 4 cm = Athlete 2.5 times more likely to have\
+            a distal lower extremity injury"),
+          html.Br([]),
+          html.H6("- Composite Score < 89.6 = high risk of distal lower extremity injury \
+            Both right and left lower extremity at high risk for distal lower extremity Injury"),
+          html.Br([]),
+          html.H6("Patient must always use some type of Orthotic Device (Idea for Injury Prevention)."),
+          
+
+          ],className = "row") ,
+          html.Br([]),
+          html.Div([
+                    html.H6(children='Z-Sheet Brief',
+                            style={
+                            'textAlign':'center',
+                            'backgroundColor':'black',
+                            },
+                            className="gs-header gs-text-header padded"),
+                    html.H5("Briefing",className='six columns',style=dict(textAlign='center',textDecoration='underline')),
+
+                    html.H6(children="\
+                        21 year-old male collegiate basketball player with history of a Grade I Lisfranc injury\
+                      ligament sprain, to the right foot status post one month. Based upon the examinations performed\
+                      and described below, the patient's primary medical concern from a lower extremity standpoint is compensatory\
+                      injuries, re-injury, and rehabilitation. As per the quantative data obtained through the Homer Technique\
+                      analysis, risk areas were identified and an optimal rehab plan formulated", className='six columns'),
+
+                    html.H5("Follow Up Action",style=dict(textAlign='center',textDecoration='underline'),),
+                    html.Ol([
+                        html.Li("Gait Training"),
+                        html.Li(["High Risk Areas", 
+                          html.Ul([html.Li("Peroneals",style=(dict(textIndent="20px",)))])
+                          , ]),
+                        html.Li("Eccentric Strengthening and Stretching"),
+                        html.Li("Friction Massage"),
+                        html.Li("Proprioceptive Exercises"),
+                        html.Li("Tibialis Anterior"),
+                      ],style=dict(fontSize=15,textIndent=10), className = 'padded', ),
+
+                ], className="row"),          
     ], className="page")
 
 
@@ -601,10 +687,213 @@ portfolioManagement = html.Div([ # page 3
             get_menu(),
 
             # Row 1
-             html.Img(src='https://thumbs.dreamstime.com/b/website-under-construction-sign-grungy-style-vector-large-format-42461291.jpg',)
+             #html.Img(src='https://thumbs.dreamstime.com/b/website-under-construction-sign-grungy-style-vector-large-format-42461291.jpg',)
             
-            ], className="row "),
+            html.Div([
+                    html.H6('Right Lower Extremity',
+                            className="gs-header gs-text-header padded"),
+                    dcc.Graph(
+                        id = "graph-1",
+                        figure={
+                            'data': [
+                                go.Scatter(
+                                   x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                   y = ["80", "70", "90", "40"],
+                                   marker = {
+                                   "color": "rgb(0,0,0)"
+                                   },
+                                   name = "Bad Tracker"
 
+                                  ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["75", "60", "85", "35"],
+                                    marker = {
+                                      "color": "rgb(0,128,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                      }
+                                    },
+                                    name = "Good"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["5", "10", "5", "5"],
+                                    marker = {
+                                      "color": "rgb(255, 225, 53)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                      }
+                                    },
+                                    name = "Ok"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["20", "30", "10", "60"],
+                                    marker = {
+                                      "color": "rgb(255,0,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                        }
+                                    },
+                                    name = "Bad"
+                                ),
+                            ],
+                            'layout': go.Layout(
+                                autosize = False,
+                                barmode = 'stack',
+                                bargap = 0.35,
+                                font = {
+                                  "family": "Raleway",
+                                  "size": 10
+                                },
+                                #height = 200,
+                                hovermode = "closest",
+                                legend = {
+                                  "x": -0.0228945952895,
+                                  "y": -0.189563896463,
+                                  "orientation": "h",
+                                  "yanchor": "top"
+                                },
+                                margin = {
+                                  "r": 0,
+                                  "t": 20,
+                                  "b": 20,
+                                  "l": 10
+                                },
+                                showlegend = True,
+                                title = "",
+                                #width = 340,
+                                xaxis = {
+                                  "autorange": True,
+                                  "range": [-0.5, 4.5],
+                                  "showline": True,
+                                  "title": "",
+                                  "type": "category"
+                                },
+                                yaxis = {
+                                  "autorange": True,
+                                  "range": [0, 22.9789473684],
+                                  "showgrid": True,
+                                  "showline": True,
+                                  "title": "",
+                                  "type": "linear",
+                                  "zeroline": False
+                                }
+                            )
+                        },
+                        config={
+                            'displayModeBar': False
+                        }
+                    )
+                ], ),
+            
+            html.Div([
+              html.H6('Left Lower Extremity',
+                            className="gs-header gs-text-header padded"),
+              dcc.Graph(
+                        id = "graph-2",
+                        figure={
+                            'data': [
+                                go.Scatter(
+                                   x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                   y = ["80", "70", "90", "40"],
+                                   marker = {
+                                   "color": "rgb(0,0,0)"
+                                   },
+                                   name = "Bad Tracker"
+
+                                  ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["75", "60", "85", "35"],
+                                    marker = {
+                                      "color": "rgb(0,128,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                      }
+                                    },
+                                    name = "Good"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["5", "10", "5", "5"],
+                                    marker = {
+                                      "color": "rgb(255, 225, 53)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                      }
+                                    },
+                                    name = "Ok"
+                                ),
+                                go.Bar(
+                                    x = ["Tib Anterior", "Peroneals", "Med Gastro", "Lat. Gastro"],
+                                    y = ["20", "30", "10", "60"],
+                                    marker = {
+                                      "color": "rgb(255,0,0)",
+                                      "line": {
+                                        "color": "rgb(255, 255, 255)",
+                                        "width": 2
+                                        }
+                                    },
+                                    name = "Bad"
+                                ),
+                            ],
+                            'layout': go.Layout(
+                                autosize = False,
+                                barmode = 'stack',
+                                bargap = 0.35,
+                                font = {
+                                  "family": "Raleway",
+                                  "size": 10
+                                },
+                                #height = 200,
+                                hovermode = "closest",
+                                legend = {
+                                  "x": -0.0228945952895,
+                                  "y": -0.189563896463,
+                                  "orientation": "h",
+                                  "yanchor": "top"
+                                },
+                                margin = {
+                                  "r": 0,
+                                  "t": 20,
+                                  "b": 20,
+                                  "l": 20
+                                },
+                                showlegend = True,
+                                title = "Muscular Exhaustion Level",
+                                #width = 340,
+                                xaxis = {
+                                  "autorange": True,
+                                  "range": [-0.5, 4.5],
+                                  "showline": True,
+                                  "title": "",
+                                  "type": "category"
+                                },
+                                yaxis = {
+                                  "autorange": True,
+                                  "range": [0, 22.9789473684],
+                                  "showgrid": True,
+                                  "showline": True,
+                                  "title": "",
+                                  "type": "linear",
+                                  "zeroline": False
+                                }
+                            )
+                        },
+                        config={
+                            'displayModeBar': False
+                        }
+                    )
+              ]),
+            ]),
+    
     ], className="page")
 
 # feesMins = html.Div([  # page 4
@@ -987,7 +1276,8 @@ external_css = ["https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normaliz
                 "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css",
                 "//fonts.googleapis.com/css?family=Raleway:400,300,600",
                 "https://codepen.io/bcd/pen/KQrXdb.css",
-                "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"]
+                "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+                 ]
 
 for css in external_css:
     app.css.append_css({"external_url": css})
