@@ -8,6 +8,7 @@ import plotly.graph_objs as go
 import pandas as pd
 import os
 import base64
+from neuro import Neuro
 
 app = dash.Dash(__name__)
 server = app.server
@@ -15,19 +16,6 @@ server = app.server
 # read data for tables (one df per table)
 # df_fund_facts = pd.read_csv('https://plot.ly/~bdun9/2754.csv')
 # df_price_perf = pd.read_csv('https://plot.ly/~bdun9/2756.csv')
-# df_current_prices = pd.read_csv('https://plot.ly/~bdun9/2753.csv')
-# df_hist_prices = pd.read_csv('https://plot.ly/~bdun9/2765.csv')
-# df_avg_returns = pd.read_csv('https://plot.ly/~bdun9/2793.csv')
-# df_after_tax = pd.read_csv('https://plot.ly/~bdun9/2794.csv')
-# df_recent_returns = pd.read_csv('https://plot.ly/~bdun9/2795.csv')
-# df_equity_char = pd.read_csv('https://plot.ly/~bdun9/2796.csv')
-# df_equity_diver = pd.read_csv('https://plot.ly/~bdun9/2797.csv')
-# df_expenses = pd.read_csv('https://plot.ly/~bdun9/2798.csv')
-# df_minimums = pd.read_csv('https://plot.ly/~bdun9/2799.csv')
-# df_dividend = pd.read_csv('https://plot.ly/~bdun9/2800.csv')
-# df_realized = pd.read_csv('https://plot.ly/~bdun9/2801.csv')
-# df_unrealized = pd.read_csv('https://plot.ly/~bdun9/2802.csv')
-#df_graph = pd.read_csv("https://plot.ly/~bdun9/2804.csv")
 
 # reusable componenets
 def make_dash_table(df):
@@ -87,7 +75,7 @@ def get_menu():
 
         dcc.Link('Overview   ', href='/overview', className="tab first"),
 
-        dcc.Link('Composite Score   ', href='/price-performance', className="tab"),
+        dcc.Link('Composite Score   ', href='/composite-score', className="tab"),
 
         dcc.Link('Neuromuscular Report  ', href='/portfolio-management', className="tab"),
 
@@ -122,7 +110,7 @@ def get_ProfilePic():
         html.Div([
           html.Strong(["Serena Williams"]),
           html.P(" "),
-          html.P("19"),
+          html.P("33"),
           html.P("Center"),
           html.P("None"),
           html.Br([]),
@@ -576,7 +564,7 @@ overview = html.Div([  # page 1
     ], className="page")
 
 
-pricePerformance = html.Div([  # page 2
+compositeScore = html.Div([  # page 2
 
         print_button(),
 
@@ -893,6 +881,8 @@ portfolioManagement = html.Div([ # page 3
                     )
               ]),
             ],className='row padded'),
+            
+            #Neuro.get_assessment(),
     
     ], className="page")
 
@@ -1247,7 +1237,7 @@ noPage = html.Div([  # 404
 # Describe the layout, or the UI, of the app
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content')
+    html.Div(id='page-content'),
 ])
 
 # Update page
@@ -1256,8 +1246,8 @@ app.layout = html.Div([
 def display_page(pathname):
     if pathname == '/' or pathname == '/overview':
         return overview
-    elif pathname == '/price-performance':
-        return pricePerformance
+    elif pathname == '/composite-score':
+        return compositeScore
     elif pathname == '/portfolio-management':
         return portfolioManagement
     elif pathname == '/fees':
@@ -1267,9 +1257,17 @@ def display_page(pathname):
     elif pathname == '/news-and-reviews':
         return newsReviews
     elif pathname == '/full-view':
-        return overview,pricePerformance,portfolioManagement,feesMins,distributions,newsReviews
+        return overview,compositeScore,portfolioManagement,feesMins,distributions,newsReviews
     else:
         return noPage
+
+# @app.callback(dash.dependencies.Output('tabs-content-example','children'),
+#               [dash.dependencies.Input('tabs-example','value')])
+# def render_content(tab):
+#     if tab == 'tab-1-example':
+#       return html.H1("hello")
+#     elif tab == 'tab-2-example':
+#       return html.H2("hello tab 2")
 
 
 external_css = ["https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css",
